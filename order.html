@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #heading {
+            font-size: 1.2vw;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(60, 60, 60);
+            color: white;
+            padding: 1vw;
+            width: auto;
+            border-bottom: 2px solid red;
+
+        }
+
+        #Order {
+            display: flex;
+            gap: 3vw;
+            justify-content: center;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .Order1:hover {
+            border-bottom: 2px solid red;
+        }
+
+        .Order1 {
+            font-size: 1.2vw;
+        }
+
+        body {
+            background-image: url(./foodPhoto.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #manu {
+            display: flex;
+            justify-content: center;
+            height: auto;
+            width: 100%;
+            margin-top: 2vw;
+            /* background-color:black; */
+            color: white;
+        }
+
+        #input-manu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: auto;
+            border: 1px solid black;
+            padding: 2vw;
+            background-color: rgba(218, 204, 204, 0);
+            color: white;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+        }
+
+        .p-input {
+            display: flex;
+            font-size: 2vw;
+            justify-content: center;
+            color: rgb(31, 36, 31);
+            color: white;
+
+        }
+
+        input {
+            padding: 0.8vw;
+            width: 20vw;
+            background-color: rgba(255, 255, 255, 0.491);
+            border-radius: 10px;
+            border: 1px solid white;
+            text-transform: uppercase;
+        }
+
+        #heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #saveButton {
+            padding: 0.80vw;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(16, 20, 255);
+            color: white;
+            font-size: 1.4vw;
+        }
+
+        #saveButton:hover {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #Manu-icon {
+            display: none;
+        }
+
+        @media only screen and (max-width: 450px) {
+            main {
+                width: auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            section {
+                height: 90vh;
+            }
+
+            #heading {
+                font-size: 3.0vw;
+                display: flex;
+                justify-content: center;
+                background-color: rgb(60, 60, 60);
+                color: white;
+                padding: 1vw;
+                width: auto;
+                border-bottom: 2px solid red;
+            }
+
+            #manu {
+                height: 90%;
+                display: flex;
+                justify-content: center;
+                height: auto;
+                width: 100%;
+                margin-top: 6vw;
+                border-radius: 10px;
+            }
+
+            input {
+                padding: 2vw;
+                width: 20vw;
+                background-color: rgba(255, 255, 255, 0.491);
+                border-radius: 10px;
+                border: 1px solid white;
+                width: 100%;
+                align-self: center;
+                color: white;
+            }
+
+            #input-manu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50vw;
+                border: 1px solid black;
+                padding: 6vw;
+                background-color: rgba(218, 204, 204, 0);
+                color: white;
+                border-radius: 10px;
+                backdrop-filter: blur(2px);
+                gap: 10px;
+            }
+        
+
+            .p-input {
+                display: flex;
+                font-size: 5vw;
+                justify-content: center;
+                /* color: rgb(31, 36, 31); */
+                color: white;
+
+            }
+            
+
+            #saveButton {
+                padding: 10px;
+                font-size: 3vw;
+            }
+
+            #Order {
+                display: none;
+            }
+
+            .menu1 {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-direction: column;
+            }
+
+            #Manu-icon {
+                display: flex;
+                height: 8vw;
+            }
+
+            .Order1 {
+                font-size: 6vw;
+            }
+
+            .menu1 {
+                display: flex !important;
+            }
+        }
+
+        #map {
+            display: flex;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 10px;
+
+        }
+
+        iframe {
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        #section1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 2vw;
+
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div id="heading">
+                <div>
+                    <div>
+                        <b>
+                            <h1>Fresh & Tasty Food, Anytime</h1>
+                        </b>
+                        <div>
+                            <img id="Manu-icon" src="./Manu.png">
+                        </div>
+                        <div>
+                            <div id="Order">
+                                <p class="Order1">Add Order</p>
+                                <p class="Order1">Edit Order Details</p>
+                              <a href="./report.html">  <p class="Order1">Report</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    </div>
+    </div>
+    <main>
+        <section>
+            <form action="https://sheetdb.io/api/v1/5pd8elcmlf7p5" method="post" target="hiddenFrame">
+                <div id="manu">
+                    <div id="input-manu">
+                        <p class="p-input">Client Name</p><input type="text" id="Client-name" name="ClientName"
+                            placeholder="Client Name">
+                        <p class="p-input">Food Name</p><input type="text" id="Food-name" name="FoodName"
+                            placeholder="Food Name">
+                        <p class="p-input"> Rate</p><input type="number" id="Rate" oninput="CalculateTotal()" name="Rate"
+                            placeholder=" Rate">
+                        <p class="p-input"> Quantity</p><input type="number" oninput="CalculateTotal()" id="Quantity"
+                            name="Quantity" placeholder="Quantity">
+                        <p class="p-input">Total Amount</p><input name="Total-Amount" id="Total" oninput="CalculateTotal()"
+                            placeholder="Total Amount" readonly>
+                        <p class="p-input">Date & Time</p>
+                        <input type="text" id="DateTime" name="DateTime" readonly>
+                        <button id="saveButton" onclick="btn()" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+            <iframe name="hiddenFrame" style="display:none;"></iframe>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            let icon = document.querySelector("#Manu-icon");
+            let Order = document.querySelector("#Order");
+
+            icon.addEventListener("click", () => {
+                Order.classList.toggle("menu1");
+                console.log(Order);
+            });
+        });
+        function btn() {
+            let Client = document.getElementById("Client-name").value;
+            let Food = document.getElementById("Food-name").value;
+            let Rate = document.getElementById("Rate").value;
+            let Quantity = document.getElementById("Quantity").value;
+            if (Client == "" || Food == "" || Rate == "" || Quantity == "") {
+                alert("Fill in the blanck");
+            }
+            else {
+                alert("Data Saved SuccessFully" + Client + Food);
+            }
+            setTimeout(() => {
+                location.reload()
+            }, 1000)
+            return true;
+        }
+        function CalculateTotal() {
+            let Rate = document.getElementById("Rate").value;
+            let Quantity = document.getElementById("Quantity").value;
+            document.getElementById("Total").value = Rate * Quantity
+
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let now = new Date();
+
+            let day = String(now.getDate()).padStart(2, '0');
+            let month = String(now.getMonth() + 1).padStart(2, '0');
+            let year = now.getFullYear();
+
+            let hours = String(now.getHours()).padStart(2, '0');
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+
+            let fullDateTime = day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("DateTime").value = fullDateTime;
+        });
+
+    </script>
+</body>
+
+</html>

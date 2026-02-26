@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food_Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #heading {
+            font-size: 1.2vw;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(60, 60, 60);
+            color: white;
+            padding: 1vw;
+            width: auto;
+            border-bottom: 2px solid red;
+
+        }
+
+        #Order {
+            display: flex;
+            gap: 3vw;
+            justify-content: center;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .Order1:hover {
+            border-bottom: 2px solid red;
+        }
+
+        .Order1 {
+            font-size: 1.2vw;
+        }
+
+        body {
+            background-image: url(./foodPhoto.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #manu {
+            display: flex;
+            justify-content: center;
+            height: auto;
+            width: 100%;
+            margin-top: 2vw;
+            /* background-color:black; */
+            color: white;
+        }
+
+        #input-manu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: auto;
+            border: 1px solid black;
+            padding: 2vw;
+            background-color: rgba(218, 204, 204, 0);
+            color: white;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+        }
+
+        .p-input {
+            display: flex;
+            font-size: 2vw;
+            justify-content: center;
+            color: rgb(31, 36, 31);
+            color: white;
+
+        }
+
+        input {
+            padding: 0.8vw;
+            width: 20vw;
+            background-color: rgba(255, 255, 255, 0.491);
+            border-radius: 10px;
+            border: 1px solid white;
+            text-transform: uppercase;
+        }
+
+        #heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #saveButton {
+            padding: 0.80vw;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(16, 20, 255);
+            color: white;
+            font-size: 1.4vw;
+        }
+
+        #saveButton:hover {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #Manu-icon {
+            display: none;
+        }
+
+        @media only screen and (max-width: 450px) {
+            main {
+                width: auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            section {
+                height: 90vh;
+            }
+
+            #heading {
+                font-size: 3.0vw;
+                display: flex;
+                justify-content: center;
+                background-color: rgb(60, 60, 60);
+                color: white;
+                padding: 1vw;
+                width: auto;
+                border-bottom: 2px solid red;
+            }
+
+            #manu {
+                height: 90%;
+                display: flex;
+                justify-content: center;
+                height: auto;
+                width: 100%;
+                margin-top: 6vw;
+                border-radius: 10px;
+            }
+
+            input {
+                padding: 2vw;
+                width: 20vw;
+                background-color: rgba(255, 255, 255, 0.491);
+                border-radius: 10px;
+                border: 1px solid white;
+                width: 100%;
+                align-self: center;
+                color: white;
+            }
+
+            #input-manu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50vw;
+                border: 1px solid black;
+                padding: 6vw;
+                background-color: rgba(218, 204, 204, 0);
+                color: white;
+                border-radius: 10px;
+                backdrop-filter: blur(2px);
+                gap: 10px;
+            }
+
+
+            .p-input {
+                display: flex;
+                font-size: 5vw;
+                justify-content: center;
+                /* color: rgb(31, 36, 31); */
+                color: white;
+
+            }
+
+
+            #saveButton {
+                padding: 10px;
+                font-size: 3vw;
+            }
+
+            #Order {
+                display: none;
+            }
+
+            .menu1 {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-direction: column;
+            }
+
+            #Manu-icon {
+                display: flex;
+                height: 8vw;
+            }
+
+            .Order1 {
+                font-size: 6vw;
+            }
+
+            .menu1 {
+                display: flex !important;
+            }
+        }
+
+        #map {
+            display: flex;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 10px;
+
+        }
+
+        iframe {
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        #section1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 2vw;
+
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div id="heading">
+                <div>
+                    <div>
+                        <b>
+                            <h1>Fresh & Tasty Food, Anytime</h1>
+                        </b>
+                        <div>
+                            <img id="Manu-icon" src="./Manu.png">
+                        </div>
+                        <div>
+                            <div id="Order">
+                               <a href="order.html"> <p class="Order1">Add Order</p></a>
+                                <p class="Order1">Edit Order Details</p>
+                                <p class="Order1">Report</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    </div>
+    </div>
+    <main>
+        <section>
+            <form action="https://sheetdb.io/api/v1/5pd8elcmlf7p5" method="post" target="hiddenFrame">
+                <div id="manu">
+                    <div id="input-manu">
+                        <p class="p-input">From Date</p>
+                        <input type="date" id="fromDate">
+                        <p class="p-input">To Date</p>
+                        <input type="date" id="toDate">
+                        <p class="p-input">Client Name</p><input type="text" id="Client-name" name="ClientName"
+                            placeholder="Client Name">
+                        <p class="p-input">Food Name</p><input type="text" id="Food-name" name="FoodName"
+                            placeholder="Food Name">
+                        <p class="p-input"> Rate</p><input type="number" id="Rate" oninput="CalculateTotal()"
+                            name="Rate" placeholder=" Rate">
+                        <button id="saveButton" onclick="downloadPDF()" type="button">Generat Report</button>
+                        <button id="saveButton" onclick="downloadExcel()" type="button">Generat Report Excel</button>
+                    </div>
+                </div>
+            </form>
+            <iframe name="hiddenFrame" style="display:none;"></iframe>
+        </section>
+    </main>
+    <script>
+        async function getFilteredData() {
+
+            let client = document.getElementById("Client-name").value.trim();
+            let food = document.getElementById("Food-name").value.trim();
+            let fromDate = document.getElementById("fromDate").value;
+            let toDate = document.getElementById("toDate").value;
+
+            if (!client && !food && !fromDate && !toDate) {
+                alert("Enter at least one field");
+                return [];
+            }
+
+            const res = await fetch("https://sheetdb.io/api/v1/5pd8elcmlf7p5");
+            let data = await res.json();
+
+            // Client Filter
+            if (client) {
+                data = data.filter(r =>
+                    r.ClientName &&
+                    r.ClientName.toLowerCase().includes(client.toLowerCase())
+                );
+            }
+
+            // Food Filter
+            if (food) {
+                data = data.filter(r =>
+                    r.FoodName &&
+                    r.FoodName.toLowerCase().includes(food.toLowerCase())
+                );
+            }
+
+            // From Date Filter
+            if (fromDate) {
+                let inputFrom = new Date(fromDate);
+                inputFrom.setHours(0, 0, 0, 0);
+
+                data = data.filter(r => {
+                    if (!r.DateTime) return false;
+
+                    let [datePart] = r.DateTime.split(" ");
+                    let [day, month, year] = datePart.split("/");
+
+                    let rowDate = new Date(year, month - 1, day);
+                    return rowDate >= inputFrom;
+                });
+            }
+
+            // To Date Filter
+            if (toDate) {
+                let inputTo = new Date(toDate);
+                inputTo.setHours(23, 59, 59, 999);
+
+                data = data.filter(r => {
+                    if (!r.DateTime) return false;
+
+                    let [datePart] = r.DateTime.split(" ");
+                    let [day, month, year] = datePart.split("/");
+
+                    let rowDate = new Date(year, month - 1, day);
+                    return rowDate <= inputTo;
+                });
+            }
+
+            return data;
+        }
+
+
+
+        async function downloadPDF() {
+
+            const data = await getFilteredData();
+            if (data.length === 0) {
+                alert("No matching data");
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(16);
+            doc.text("Food Order Report", 20, 20);
+
+            let y = 30;
+
+            data.forEach(r => {
+                doc.setFontSize(11);
+                doc.text(`Client: ${r.ClientName}`, 20, y); y += 6;
+                doc.text(`Food: ${r.FoodName}`, 20, y); y += 6;
+                doc.text(`Rate: ${r.Rate}`, 20, y); y += 6;
+                doc.text(`Qty: ${r.Quantity}`, 20, y); y += 6;
+                doc.text(`Amount: ${r["Total-Amount"]}`, 20, y); y += 10;
+            });
+
+            doc.save("Food_Report.pdf");
+        }
+
+
+
+        async function downloadExcel() {
+
+            const data = await getFilteredData();
+            if (data.length === 0) {
+                alert("No matching data");
+                return;
+            }
+
+            let totalQty = 0;
+            let totalAmount = 0;
+
+            data.forEach(r => {
+                totalQty += Number(r.Quantity) || 0;
+                totalAmount += Number(r["Total-Amount"]) || 0;
+            });
+
+            data.push({
+                ClientName: "TOTAL",
+                FoodName: "",
+                Rate: "",
+                Quantity: totalQty,
+                "Total-Amount": totalAmount,
+                DateTime: ""
+            });
+
+            const ws = XLSX.utils.json_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Report");
+            XLSX.writeFile(wb, "Food_Report.xlsx");
+        }
+    </script>
+</body>
+
+</html>
