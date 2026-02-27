@@ -296,6 +296,17 @@
         </section>
     </main>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            let icon = document.querySelector("#Manu-icon");
+            let Order = document.querySelector("#Order");
+
+            icon.addEventListener("click", () => {
+                Order.classList.toggle("menu1");
+                console.log(Order);
+            });
+
+        });
         async function getFilteredData() {
 
             let client = document.getElementById("Client-name").value.trim();
